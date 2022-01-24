@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="col-md-12 p-0">
+    <div id="expert-header" id="header">
+        <div class="container-fluid">
+            <div class="row">
+                <img src="static/imgs/header_consultant.png" class="w-100" height="45%"/>
+                
+                <div id="expert-header-name">
+                    <img src="{{ expert.avatar }}" class="img-fluid rounded-circle">
+                    <span style="display: inline;">{{ expert.firstName }} {{ expert.lastName }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="card m-1">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-2 p4">
+                        <img src="static/imgs/3d_printer.png" class="img-fluid" />
+                    </div>
+                    <div class="col-md-7 p4">
+                        <h3> Remote Consultation</h3>
+                        <h4>{{ device_details.name }}</h4>
+                        Model #{{ device_details.model }}<br>
+                        Purchased {{ device_details.purchased }}<br>
+                    </div>
+                    <div class="col-md-3 text-center p4">
+                        <a href="{{ ticket_link }}" target="_blank"><button class="btn btn-isg mt-2 mb-4">View Ticket</button></a>
+                        <a href="/expert_close?state=6"><button class="btn btn-isg mb-4">Resolve Case</button></a><br>
+                        <a href="/expert_close?state=7"><button class="btn btn-isg mb-4">Close Case</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row m-1">
+    <div class="col-md-3 p-0">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title">Notes</div>
+                <p>
+                    {{ device_details.notes }}                
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 py-0 px-1">
+        <div class="mt-2">
+        {% include "alert.html" %}
+    </div>
+        <div class="card">
+            <div id="consult-widget"class="card-body p-0">
+                <div id="wxteams-widget"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 p-0">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">
+                            Device Interface (Read Only)
+                        </div>
+                        <img src="{{ device_details.interface }}" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 mt-1">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">
+                            Device Schematic
+                        </div>
+                        <img src="{{ device_details.schematic }}" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 mt-1">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">
+                            Filament Information (Scanned)
+                        </div>
+                        <img src="{{ device_details.filament_info }}" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block script %}
+{{ super() }}
+    var widgetEl = document.getElementById('wxteams-widget');
+    // Init a new widget
+    webex.widget(widgetEl).spaceWidget({
+      accessToken: '{{ WEBEX_ACCESS_TOKEN }}',
+      destinationId: '{{ SPACE_ID }}',
+      destinationType: 'spaceId'
+    });
+{% endblock %}

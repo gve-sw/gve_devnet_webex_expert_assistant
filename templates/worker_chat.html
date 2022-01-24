@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block header_style %}
+
+{% endblock %}
+
+
+{% block header %}
+<div class="col-md-12">
+    <div id="header">
+        <div class="container-fluid">
+            <div class="row">
+                <img src="static/imgs/header_small.png" class="w-100" height="45%"/>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div id="wxteams-widget"></div>
+</div>
+</div>
+{% endblock %}
+
+{% block script %}
+    var widgetEl = document.getElementById('wxteams-widget');
+    // Init a new widget
+    webex.widget(widgetEl).spaceWidget({
+      accessToken: '{{ guest_token }}',
+      destinationId: '{{ space_id }}',
+      destinationType: 'spaceId'
+    });
+{% endblock %}

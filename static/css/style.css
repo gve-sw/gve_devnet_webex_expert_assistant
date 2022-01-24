@@ -1,0 +1,183 @@
+/*base*/
+body{
+    font-family: "Neue Helvetica", Arial, Roboto, sans-serif;
+}
+
+h1, h3{
+    color: #136abd;
+}
+.btn-isg { 
+    color: #ffffff; 
+    background-color: #136abd; 
+    border-color: #136abd;
+    width: 100%;
+    border-radius: 0px;
+    font-style: italic;
+    text-transform: uppercase;
+    padding: 8px 22px;
+    font-size: 12px;
+    text-align: center;
+} 
+
+.btn-isg .bi-chevron-right{
+    height: 21;
+    width: 33;
+}
+
+.btn-isg:hover, 
+.btn-isg:focus, 
+.btn-isg:active, 
+.btn-isg.active, 
+.open .dropdown-toggle.btn-isg { 
+color: #ffffff; 
+background-color: #0a355e; 
+border-color: #0a355e; 
+} 
+
+.btn-isg:active, 
+.btn-isg.active, 
+.open .dropdown-toggle.btn-isg { 
+background-image: none; 
+} 
+
+.btn-isg.disabled, 
+.btn-isg[disabled], 
+fieldset[disabled] .btn-isg, 
+.btn-isg.disabled:hover, 
+.btn-isg[disabled]:hover, 
+fieldset[disabled] .btn-isg:hover, 
+.btn-isg.disabled:focus, 
+.btn-isg[disabled]:focus, 
+fieldset[disabled] .btn-isg:focus, 
+.btn-isg.disabled:active, 
+.btn-isg[disabled]:active, 
+fieldset[disabled] .btn-isg:active, 
+.btn-isg.disabled.active, 
+.btn-isg[disabled].active, 
+fieldset[disabled] .btn-isg.active { 
+background-color: #4c798d; 
+border-color: #4c798d; 
+} 
+
+.btn-isg .badge { 
+color: #136abd; 
+background-color: #ffffff; 
+}
+
+.page-container{
+    margin: 50px;
+}
+#header, #header .container-fluid{
+    padding:0;
+}
+
+.alert-danger{
+    background-color: #c9274d; 
+    color: #fff; 
+    border-radius: 0; 
+    border: 0;
+}
+
+/*consult*/
+body{
+    background-color: #ededed;
+}
+.card{
+    border-radius: 0;
+    margin: 5px 5px 0 0;
+    border: 0;
+}
+.btn{
+    width: 100%;
+    text-align: center;
+}
+
+#expert-header .img-fluid{
+    width: 35px;
+    height: 35px; 
+    display: inline;
+}
+
+#expert-header #expert-header-name {
+    position: absolute; 
+    top: 12px; 
+    right: 35px;
+    color: white;
+}
+
+#consult-widget #wxteams-widget{
+    width: 100%; 
+    height: 600px;
+}
+
+/*worker chat*/
+
+p{
+    margin-top: revert;
+}
+.webex-title-bar{
+    background-color: #0a355e;
+}
+
+#wxteams-widget{
+    height: 90vh;
+    width: 100%;
+}
+
+.webex-title-bar {
+    background-color: #00A0D1;
+}
+
+/*worker index*/
+
+.img-fluid{
+    width: 80%;
+}
+
+#index .img-fluid{
+    width: 50%;
+}
+
+#choice .img-fluid{
+    width: 100%;
+    margin: 10px 0;
+}
+
+/*initial form*/
+
+label{
+    font-weight: bold;
+}
+
+/*scanner*/
+
+#container {
+    text-align: center;
+    margin: 0;
+  }
+  
+  #qr-canvas {
+    margin: auto;
+    width: calc(100% - 20px);
+    max-width: 100%;
+    max-height:100%;
+  }
+  
+  #btn-scan-qr {
+    cursor: pointer;
+  }
+  
+  #btn-scan-qr img {
+    height: 10em;
+    padding: 15px;
+    margin: 15px;
+    background: white;
+  }
+  
+  #qr-result {
+    font-size: 1.2em;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 700px;
+    background-color: white;
+  }

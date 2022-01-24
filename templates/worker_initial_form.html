@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="page-container">
+<div class="row">
+    <div class="col-md-12">
+            {% include "alert.html" %}
+
+            <p>
+                Please provide the following information so we can setup 
+                a guest profile for you consultation:
+            </p>
+            <div class="form-group">
+                <label for="worker_name"> Name*</label>
+                <input type="text" class="form-control" id="worker_name" name="worker_name">
+            </div>
+            
+            <!--Available Webex Expert Devices on Site-->
+            <label>Webex Expert Device (optional)</label>
+            
+            <div class="all-checks">
+                {% for key, value in realwear_headset_account_mapping.items() %}
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="all-checks[]" value="{{ key }}">
+                    <label class="form-check-label">
+                        {{ key }}
+                    </label>
+                </div>
+                {% endfor %}
+            </div>
+            <br>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="callme">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Call me on my Webex On Demand device for the consultation
+                </label>
+              </div>
+
+            <br>
+
+            <a href="#" id="btnStart" name="btnStart" class="btn btn-isg">Next</a>
+            </div>
+
+    </div>
+</div>
+</div>
+{% endblock %}
+
+{% block script %}
+const btnStart = document.getElementById("btnStart");
+
+/*var stored_name=window.localStorage.getItem("worker_name");
+
+if (stored_name!='' && stored_name!=null) {
+    document.getElementById("worker_name").setAttribute("value",stored_name);
+};*/
+
+btnStart.onclick = () => {
+    var worker_name = document.getElementById("worker_name").value;
+    var devices = document.getElementsByName("all-checks[]");
+    var callme = document.getElementById("callme");
+
+
+    for(let i = 0; i < devices.length; i++)
+    {
+        if(devices[i].checked){
+            device_name =  devices[i].value;
+            console.log(device_name);
+            window.localStorage.setItem("realwear_headset", device_name);
+            break;
+        }else{
+            window.localStorage.setItem("realwear_headset", "");
+        }
+    }
+
+    window.localStorage.setItem("worker_name", worker_name);
+    window.localStorage.setItem("callme", callme.checked);
+
+    window.location = "/worker_index";
+  };
+{% endblock %}

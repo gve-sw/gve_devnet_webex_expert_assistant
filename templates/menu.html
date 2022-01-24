@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-container">
+        <h3>Webex Expert Assistant Demo:</h3>
+        <p>
+            This demo illustrates a support workflow with Webex, 
+            Webex On Demand (+Realwear Headset) and ServiceNow between a frontline worker and experts. 
+          </p>
+          <p>
+            Choose one of the following roles for redirection to the associated demo pages.
+          </p>
+          
+        <div>
+            <a href="#" id="btnFrontlineWorker" name="btnFrontlineWorker" class="btn btn-isg">
+                Frontline Worker
+            </a>
+          </div>
+        <br>
+        <div>
+            <a href="#" id="btnExpert" name="btnExpert" class="btn btn-isg">
+              Expert
+            </a>
+        </div>
+
+        <div class="my-3">
+          {% include "alert.html" %}
+        </div>
+
+    </div>
+{% endblock %}
+{% block script %}
+const btnFrontlineWorker = document.getElementById("btnFrontlineWorker");
+const btnExpert = document.getElementById("btnExpert");
+
+btnFrontlineWorker.onclick = () => {
+    window.location = "/worker_initial_form";
+  };
+
+btnExpert.onclick = () => {
+  window.location = "/expert_consult";
+};
+{% endblock %}

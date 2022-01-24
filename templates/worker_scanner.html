@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block header_libs %}
+<script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
+{% endblock %}
+{% block footer_libs %}
+<script src="static/js/qrCodeReader.js"></script>
+{% endblock %}
+
+{% block header %}{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="container">
+                <a id="btn-scan-qr">
+                </a>
+            
+                <canvas hidden="" id="qr-canvas"></canvas>
+                <div id="qr-result" hidden="">
+                    <b>Data:</b> <span id="outputData"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+document.getElementById("btn-scan-qr").click();
+
+{% endblock %}

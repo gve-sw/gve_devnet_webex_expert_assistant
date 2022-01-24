@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="index" class="page-container">
+<div class="row">
+    <div class="col-md-12">
+        {% include "alert.html" %}
+    </div>
+    <div class="col-md-6 pt-4">
+        <div class="card shadow w-100">
+            <div class="card-body text-center">
+                Scan a Machine's QR Code <br>
+                <img src="static/imgs/menu_qr.png" class="img-fluid"/>
+                <a href="/worker_scanner" class="btn btn-isg mt-3">Open Scanner</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 pt-4">
+        <div class="card shadow w-100">
+            <div class="card-body text-center">
+                Browse Directory of Experts <br>
+                <img src="static/imgs/menu_dir.png" class="img-fluid"/>
+                <a href="#" class="btn btn-isg mt-3">Go to Directory</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row pt-4">
+    <div class="col-md-12">
+        <div class="card shadow w-100">
+            <div class="card-body">
+                Search Existing Cases <br>
+                <form class="pt-4">
+                    <div class="form-row">
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" placeholder="Enter Ticket Number">
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-isg">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

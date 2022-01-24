@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="choice" class="page-container">
+    <div class="row">
+
+        <div class="col-md-12">
+            {% include "alert.html" %}
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3">
+
+            <h3> {{ model.name }}</h3>
+            Model #{{ model.model }}<br>
+            Purchased {{ model.purchased }}<br>
+            <img src="static/imgs/3d_printer.png" class="img-fluid" />
+            <a href="#" class="btn btn-isg">Scan another QR Code</a>
+
+        </div>
+
+        <div class="col-md-1">
+        </div>
+
+        <div class="col-md-8 pt-4">
+
+            <div class="row">
+
+                {% for expert in experts %}
+
+                {% if loop.index == 1 %}
+                <h3>First available Expert</h3>
+
+                <div class="card w-100 mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img src="{{ expert.avatar }}" class="img-fluid rounded-circle" />
+                            </div>
+                            <div class="col-md-7">
+                                <div class="font-weight-bold h5">{{ expert.firstName }} {{ expert.lastName }}</div>
+                                1 person in queue
+                            </div>
+                            <div class="col-md-3">
+                                <a href="/worker_chat?expert={{ expert.emails.0 }}&worker_name={{ worker_name }}&model_number={{ model.model }}&realwear_headset={{realwear_headset}}&callme={{callme}}"
+                                    class="btn btn-isg float-end">Join Queue</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <h3>Additional Experts</h3>
+                {% else %}
+                <div class="card w-100 mx-b">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img src="{{expert.avatar }}" class="img-fluid rounded-circle" />
+                            </div>
+                            <div class="col-md-7">
+                                <div class="font-weight-bold h5">{{ expert.firstName }} {{ expert.lastName }}</div>
+                                {{ range(2, 10) | random }} person in queue
+                            </div>
+                            <div class="col-md-3">
+                                <a href="/worker_chat?expert={{expert.emails.0 }}&worker_name={{ worker_name }}&model_number={{ model.model }}&realwear_headset={{realwear_headset}}&callme={{callme}}"
+                                    class="btn btn-isg float-end">Join Queue</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+
+
+        </div>
+    </div>
+</div>
+{% endblock %}
