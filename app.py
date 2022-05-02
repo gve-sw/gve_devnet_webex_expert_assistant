@@ -44,8 +44,9 @@ CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
 
 BOT_TOKEN = os.environ.get('BOT_TOKEN')
 
-AUTHORIZATION_BASE_URL = 'https://api.ciscospark.com/v1/authorize'
-TOKEN_URL = 'https://api.ciscospark.com/v1/access_token'
+OAUTH_URL_DOMAIN = os.environ.get('OAUTH_URL_DOMAIN')
+AUTHORIZATION_BASE_URL = 'https://'+ OAUTH_URL_DOMAIN +'/v1/authorize'
+TOKEN_URL = 'https://'+ OAUTH_URL_DOMAIN +'/v1/access_token'
 SCOPE = 'spark:all'
 
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'

@@ -41,7 +41,7 @@ The application automatically updates the ServiceNow incident during the process
 
 ## Installation
 
-1. Make sure you have [Python 3.8.0](https://www.python.org/downloads/) and [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed
+1. Make sure you have [Python 3.8.0](https://www.python.org/downloads/)**(important)** and [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed.
 
 2.	(Optional) Create and activate a virtual environment 
     ```
@@ -72,7 +72,7 @@ The application automatically updates the ServiceNow incident during the process
 8. Register a [Webex Teams OAuth integration](https://developer.webex.com/docs/integrations)
     * Set the Redirect URL to: http**s**://0.0.0.0:5003/callback (default) or whatever IP address and port you are using for your server. 
     * Select the 'spark:all' scope
-    * Note the client ID and client secret for a later step.
+    * Note the client ID, client secret and domain name of the OAuth authorization URL for a later step.
 
 9. Create a [Webex Bot](https://developer.webex.com/docs/bots) 
     * Note the Bot Token for a later step.
@@ -84,7 +84,8 @@ The application automatically updates the ServiceNow incident during the process
     GUEST_ISSUER_SECRET="[guest issuer secret from step 7]"
    
     CLIENT_ID="[Integration client ID from 8]"
-    CLIENT_SECRET="[Integration client secret from 8]"    
+    CLIENT_SECRET="[Integration client secret from 8]"
+    OAUTH_URL_DOMAIN="[Domain name of the OAuth authorization URL from 8 e.g. webexapis.com or api.ciscospark.com]"
 
     BOT_TOKEN="[Bot token from 9]"
 
